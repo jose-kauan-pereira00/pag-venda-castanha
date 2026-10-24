@@ -8,7 +8,7 @@ const { nome, descricao, peso, preco, foto } = Astro.props;
 const mensagem = `Olá! Tenho interesse em: ${nome} (${peso}). Pode me passar mais informações?`;
 ---
 
-<article class="flex flex-col overflow-hidden rounded-2xl bg-azul-50">
+<article class="flex flex-col overflow-hidden rounded-2xl bg-green-200">
   <img src={foto} alt={nome} class="aspect-square w-full object-cover" loading="lazy" />
   <div class="flex flex-1 flex-col p-5">
     <h3 class="font-display text-xl">{nome}</h3>
@@ -23,7 +23,7 @@ const mensagem = `Olá! Tenho interesse em: ${nome} (${peso}). Pode me passar ma
       rel="noopener"
       class="mt-4 rounded-full bg-azul-900 px-4 py-2.5 text-center text-sm font-bold text-white hover:bg-azul-600"
     >
-      Pedir no WhatsApp
+      Fazer Pedido
     </a>
   </div>
 </article>
