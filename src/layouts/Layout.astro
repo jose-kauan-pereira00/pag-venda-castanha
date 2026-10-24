@@ -1,0 +1,29 @@
+---
+import "../styles/global.css";
+import { site } from "../data/site";
+
+interface Props {
+  titulo?: string;
+}
+const { titulo = `${site.nome} | Castanha de caju assada` } = Astro.props;
+---
+
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={site.descricao} />
+    <link rel="icon" type="image/svg+xml" href="/logo.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;700&family=Young+Serif&display=swap"
+      rel="stylesheet"
+    />
+    <title>{titulo}</title>
+  </head>
+  <body class="bg-white font-sans text-azul-950 antialiased">
+    <slot />
+  </body>
+</html>

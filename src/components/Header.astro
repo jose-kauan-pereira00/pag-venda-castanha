@@ -1,0 +1,45 @@
+---
+import { site, nav } from "../data/site";
+---
+
+<header class="sticky top-0 z-20 border-b border-azul-100 bg-white/90 backdrop-blur">
+  <div class="mx-auto flex h-16 max-w-6xl items-center justify-between px-5">
+    <a href="#inicio" class="flex items-center gap-3">
+      <img src="/logo.svg" alt="" width="40" height="40" />
+      <span class="font-display text-lg">{site.nome}</span>
+    </a>
+
+    <nav aria-label="Principal" class="hidden gap-8 text-sm font-medium md:flex">
+      {nav.map((item) => <a href={item.href} class="hover:text-azul-600">{item.label}</a>)}
+    </nav>
+
+    <button
+      id="menu-btn"
+      type="button"
+      class="rounded-full border border-azul-200 px-4 py-1.5 text-sm font-medium md:hidden"
+      aria-expanded="false"
+      aria-controls="menu-movel"
+    >
+      Menu
+    </button>
+  </div>
+
+  <nav id="menu-movel" aria-label="Menu" class="hidden border-t border-azul-100 bg-white px-5 py-2 md:hidden">
+    {nav.map((item) => <a href={item.href} class="block py-3 font-medium">{item.label}</a>)}
+  </nav>
+</header>
+
+<script>
+  const btn = document.getElementById("menu-btn");
+  const menu = document.getElementById("menu-movel");
+
+  const alternar = (abrir: boolean) => {
+    menu?.classList.toggle("hidden", !abrir);
+    btn?.setAttribute("aria-expanded", String(abrir));
+  };
+
+  btn?.addEventListener("click", () => alternar(menu?.classList.contains("hidden") ?? false));
+  menu?.addEventListener("click", (e) => {
+    if ((e.target as HTMLElement).closest("a")) alternar(false);
+  });
+</script>

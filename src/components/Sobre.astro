@@ -1,0 +1,41 @@
+---
+const beneficios = [
+  {
+    titulo: "Gorduras boas para o coração",
+    texto: "A castanha de caju tem gorduras insaturadas, que fazem parte de uma alimentação equilibrada e ajudam a cuidar do coração.",
+  },
+  {
+    titulo: "Minerais que o corpo usa todo dia",
+    texto: "É fonte de magnésio, zinco, cobre e ferro, importantes para os músculos, a imunidade e a disposição.",
+  },
+  {
+    titulo: "Mais saciedade entre as refeições",
+    texto: "Proteínas e fibras ajudam a segurar a fome, e por isso um punhado já quebra o galho.",
+  },
+  {
+    titulo: "Assada, sem fritura",
+    texto: "O forno realça o sabor e dispensa o óleo. Vale consumir em porções pequenas, como parte de uma dieta variada.",
+  },
+];
+---
+
+<section id="sobre" class="bg-azul-50 py-24">
+  <div class="mx-auto grid max-w-6xl gap-12 px-5 md:grid-cols-[2fr_3fr] md:gap-16">
+    <div>
+      <h2 class="font-display text-4xl md:text-5xl">Pequena, mas cheia de coisa boa</h2>
+      <p class="mt-4 text-azul-800">
+        A castanha de caju assada é prática, saborosa e boa companheira de qualquer rotina.
+      </p>
+    </div>
+    <dl class="divide-y divide-azul-200 border-y border-azul-200">
+      {
+        beneficios.map((b) => (
+          <div class="py-6">
+            <dt class="font-display text-xl text-amber-900">{b.titulo}</dt>
+            <dd class="mt-2 text-azul-800">{b.texto}</dd>
+          </div>
+        ))
+      }
+    </dl>
+  </div>
+</section>

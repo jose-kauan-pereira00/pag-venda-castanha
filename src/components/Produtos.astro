@@ -1,0 +1,18 @@
+---
+import { produtos } from "../data/produtos";
+import ProdutoCard from "./ProdutoCard.astro";
+---
+
+<section id="produtos" class="bg-white py-24">
+  <div class="mx-auto max-w-6xl px-5">
+    <h2 class="font-display text-4xl md:text-5xl">Nossas castanhas</h2>
+    <p class="mt-4 max-w-xl text-azul-800">
+      Escolha a sua e peça pelo WhatsApp. A mensagem já vai pronta.
+    </p>
+
+    {/* Os cards vêm de src/data/produtos.ts. Também dá para colocar <ProdutoCard ... /> direto aqui dentro. */}
+    <div id="lista-produtos" class="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      {produtos.map((produto) => <ProdutoCard {...produto} />)}
+    </div>
+  </div>
+</section>

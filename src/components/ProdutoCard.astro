@@ -1,0 +1,29 @@
+---
+import type { Produto } from "../data/produtos";
+import { linkWhatsapp } from "../data/site";
+
+type Props = Produto;
+const { nome, descricao, peso, preco, foto } = Astro.props;
+
+const mensagem = `Olá! Tenho interesse em: ${nome} (${peso}). Pode me passar mais informações?`;
+---
+
+<article class="flex flex-col overflow-hidden rounded-2xl bg-azul-50">
+  <img src={foto} alt={nome} class="aspect-square w-full object-cover" loading="lazy" />
+  <div class="flex flex-1 flex-col p-5">
+    <h3 class="font-display text-xl">{nome}</h3>
+    <p class="mt-2 flex-1 text-sm text-azul-800">{descricao}</p>
+    <p class="mt-4 flex items-baseline justify-between">
+      <span class="text-sm text-azul-800">{peso}</span>
+      <span class="font-display text-xl">{preco}</span>
+    </p>
+    <a
+      href={linkWhatsapp(mensagem)}
+      target="_blank"
+      rel="noopener"
+      class="mt-4 rounded-full bg-azul-900 px-4 py-2.5 text-center text-sm font-bold text-white hover:bg-azul-600"
+    >
+      Pedir no WhatsApp
+    </a>
+  </div>
+</article>
